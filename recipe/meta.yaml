@@ -1,6 +1,6 @@
 {% set name = "llvm-spirv" %}
 {% set llvm_version = "9.0.0" %}
-{% set version = "9.0.0_1" %}
+{% set version = "10.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,11 +8,11 @@ package:
 
 source:
   url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
-  sha256: 19eff5daedb2c1aac8ab8d64a9f8228976dbaad71b1c1a3d3cd4c17cccdb0e55
+  sha256: 7ccde52bac4c9ad967a362a3c5ec7261aa5b7b34d28cef0f3dec38d77c923049
 
 build:
   number: 0
-  skip: True  # [not linux]
+  skip: true  # [not linux]
 
 requirements:
   build:
@@ -34,7 +34,7 @@ about:
   license: NCSA
   license_file: LICENSE.TXT
   license_family: BSD
-  summary: 'A tool and a library for bi-directional translation between SPIR-V and LLVM IR'
+  summary: A tool and a library for bi-directional translation between SPIR-V and LLVM IR
 
 extra:
   recipe-maintainers:
