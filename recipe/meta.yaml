@@ -1,6 +1,6 @@
 {% set name = "llvm-spirv" %}
-{% set llvm_version = "9.0.0" %}
 {% set version = "11.0.0" %}
+{% set llvm_version = ".".join(version.split(".")[:3]) %}
 
 package:
   name: {{ name|lower }}
