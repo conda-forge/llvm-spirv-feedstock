@@ -1,5 +1,5 @@
 {% set name = "llvm-spirv" %}
-{% set version = "11.0.0" %}
+{% set version = "10.0.0" %}
 {% set llvm_version = ".".join(version.split(".")[:3]) %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
-  sha256: 6464a722278d37fca783cb505caf44cc8473c22fd22ff6a5d07198bc92059c4f
+  sha256: 7ccde52bac4c9ad967a362a3c5ec7261aa5b7b34d28cef0f3dec38d77c923049
 
 build:
   number: 0
@@ -22,8 +22,6 @@ requirements:
   host:
     - llvmdev  {{ llvm_version }}
     - llvm  {{ llvm_version }}
-  run_constrained:
-    - llvmdev  {{ llvm_version }}
 
 test:
   commands:
