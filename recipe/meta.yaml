@@ -22,6 +22,8 @@ requirements:
   host:
     - llvmdev  {{ llvm_version }}
     - llvm  {{ llvm_version }}
+  run_constrained:
+    - llvmdev  {{ llvm_version }}
 
 test:
   commands:
