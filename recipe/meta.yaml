@@ -4,11 +4,11 @@
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: {{ version }}.2020.03.26
 
 source:
-  url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
-  sha256: 7ccde52bac4c9ad967a362a3c5ec7261aa5b7b34d28cef0f3dec38d77c923049
+  url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/0054933aac6614ca8a70c13ce86e4dd9de169373.tar.gz
+  sha256: c3a701ec282bd2219b4c7cf5c0ffeb4a4da5053add530f90238861f957560a40
 
 build:
   number: 0
