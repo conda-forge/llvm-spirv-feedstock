@@ -7,8 +7,10 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
+  url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version }}.tar.gz
   sha256: 305fac5bb8efdad9054f0d27b5b765aca8b3349a500e2ba0c927763e42badc2b
+  patches:
+    - patches/gh1889.patch
 
 build:
   number: 0
