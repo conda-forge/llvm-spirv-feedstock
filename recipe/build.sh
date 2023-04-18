@@ -12,8 +12,3 @@ cmake \
 
 make -j${CPU_COUNT}
 make install
-
-
-make llvm-spirv -j${CPU_COUNT}
-cp tools/llvm-spirv/llvm-spirv $PREFIX/bin/llvm-spirv
-
