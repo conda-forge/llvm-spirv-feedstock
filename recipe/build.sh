@@ -3,7 +3,7 @@
 mkdir build
 cd build
 
-cmake \
+cmake ${CMAKE_ARGS} \
     -DLLVM_DIR=$PREFIX/lib/cmake/llvm \
     -DCMAKE_INSTALL_PREFIX=$PREFIX \
     -DCMAKE_PREFIX_PATH=$PREFIX \
