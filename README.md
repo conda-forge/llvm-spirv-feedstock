@@ -74,7 +74,10 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv-green.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv16-green.svg)](https://anaconda.org/conda-forge/libllvmspirv16) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv16.svg)](https://anaconda.org/conda-forge/libllvmspirv16) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv16.svg)](https://anaconda.org/conda-forge/libllvmspirv16) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv16.svg)](https://anaconda.org/conda-forge/libllvmspirv16) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv-green.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv--16-green.svg)](https://anaconda.org/conda-forge/llvm-spirv-16) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv-16.svg)](https://anaconda.org/conda-forge/llvm-spirv-16) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv-16.svg)](https://anaconda.org/conda-forge/llvm-spirv-16) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv-16.svg)](https://anaconda.org/conda-forge/llvm-spirv-16) |
 
 Installing llvm-spirv
 =====================
@@ -86,41 +89,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `llvm-spirv` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `libllvmspirv, libllvmspirv16, llvm-spirv, llvm-spirv-16` can be installed with `conda`:
 
 ```
-conda install llvm-spirv
-```
-
-or with `mamba`:
-
-```
-mamba install llvm-spirv
-```
-
-It is possible to list all of the versions of `llvm-spirv` available on your platform with `conda`:
-
-```
-conda search llvm-spirv --channel conda-forge
+conda install libllvmspirv libllvmspirv16 llvm-spirv llvm-spirv-16
 ```
 
 or with `mamba`:
 
 ```
-mamba search llvm-spirv --channel conda-forge
+mamba install libllvmspirv libllvmspirv16 llvm-spirv llvm-spirv-16
+```
+
+It is possible to list all of the versions of `libllvmspirv` available on your platform with `conda`:
+
+```
+conda search libllvmspirv --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search libllvmspirv --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search llvm-spirv --channel conda-forge
+mamba repoquery search libllvmspirv --channel conda-forge
 
-# List packages depending on `llvm-spirv`:
-mamba repoquery whoneeds llvm-spirv --channel conda-forge
+# List packages depending on `libllvmspirv`:
+mamba repoquery whoneeds libllvmspirv --channel conda-forge
 
-# List dependencies of `llvm-spirv`:
-mamba repoquery depends llvm-spirv --channel conda-forge
+# List dependencies of `libllvmspirv`:
+mamba repoquery depends libllvmspirv --channel conda-forge
 ```
 
 
