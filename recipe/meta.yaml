@@ -1,5 +1,5 @@
 {% set name = "llvm-spirv" %}
-{% set version = "16.0.0" %}
+{% set version = "18.1.0" %}
 {% set llvm_version = ".".join(version.split(".")[:2]) %}
 {% set major = version.split('.')[0] %}
 
@@ -9,12 +9,12 @@ package:
 
 source:
   url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
-  sha256: 305fac5bb8efdad9054f0d27b5b765aca8b3349a500e2ba0c927763e42badc2b
+  sha256: 78a770eff24d5ffe2798479845adec4b909cbf058ddc55830ea00fa7d2c1698a
   patches:
     - patches/gh1889.patch
 
 build:
-  number: 2
+  number: 0
   skip: true  # [not unix]
 
 requirements:
@@ -61,7 +61,7 @@ outputs:
   - name: libllvmspirv
     script: install.sh
     build:
-      run_exports: 
+      run_exports:
         - {{ pin_subpackage("libllvmspirv" ~ major) }}
       ignore_run_exports_from:
         - zlib
