@@ -10,8 +10,6 @@ package:
 source:
   url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
   sha256: eba381e1dd99b4ff6c672a28f52755d1adf2d810a97b51e6074ad4fa67937fb2
-  patches:
-    - patches/gh1889.patch
 
 build:
   number: 0
@@ -152,3 +150,4 @@ extra:
   feedstock-name: llvm-spirv
   recipe-maintainers:
     - isuruf
+    - matthiasdiener
