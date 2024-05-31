@@ -2,6 +2,12 @@
 {% set version = "18.1.0" %}
 {% set llvm_version = ".".join(version.split(".")[:2]) %}
 {% set major = version.split('.')[0] %}
+# https://www.phoronix.com/news/LLVM-N-1-Stable-Versioning
+{% if major | int >= 18 %}
+{% set abi_version = ".".join(version.split(".")[:2]) %}
+{% else %}
+{% set abi_version = version.split('.')[0] %}
+{% endif %}
 
 package:
   name: llvm-spirv-split
@@ -35,8 +41,8 @@ outputs:
       ignore_run_exports_from:
         - zlib
     files:
-      - lib/libLLVMSPIRVLib.{{ major }}.dylib  # [osx]
-      - lib/libLLVMSPIRVLib.so.{{ major }}     # [linux]
+      - lib/libLLVMSPIRVLib.{{ abi_version }}.dylib  # [osx]
+      - lib/libLLVMSPIRVLib.so.{{ abi_version }}     # [linux]
     requirements:
       build:
         - {{ compiler('cxx') }}
@@ -54,8 +60,8 @@ outputs:
     test:
       commands:
         - test ! -f ${PREFIX}/lib/libLLVMSPIRVLib${SHLIB_EXT}
-        - test -f ${PREFIX}/lib/libLLVMSPIRVLib.{{ major }}.dylib  # [osx]
-        - test -f ${PREFIX}/lib/libLLVMSPIRVLib.so.{{ major }}     # [linux]
+        - test -f ${PREFIX}/lib/libLLVMSPIRVLib.{{ abi_version }}.dylib  # [osx]
+        - test -f ${PREFIX}/lib/libLLVMSPIRVLib.so.{{ abi_version }}     # [linux]
 
   - name: libllvmspirv
     script: install.sh
