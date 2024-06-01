@@ -32,6 +32,7 @@ requirements:
     - llvmdev  {{ llvm_version }}.*
     - llvm  {{ llvm_version }}.*
     - spirv-headers
+    - spirv-tools
     - zlib
 
 outputs:
@@ -40,6 +41,7 @@ outputs:
     build:
       ignore_run_exports_from:
         - zlib
+        - spirv-tools
     files:
       - lib/libLLVMSPIRVLib.{{ abi_version }}.dylib  # [osx]
       - lib/libLLVMSPIRVLib.so.{{ abi_version }}     # [linux]
@@ -54,6 +56,7 @@ outputs:
         - llvm  {{ llvm_version }}.*
         - zlib
         - spirv-headers
+        - spirv-tools
       run_constrained:
         - llvmdev  {{ llvm_version }}.*
         - llvm-spirv {{ version }}.* *_{{ PKG_BUILDNUM }}
@@ -70,6 +73,7 @@ outputs:
         - {{ pin_subpackage("libllvmspirv" ~ major) }}
       ignore_run_exports_from:
         - zlib
+        - spirv-tools
     files:
       - lib/libLLVMSPIRVLib.dylib       # [osx]
       - lib/libLLVMSPIRVLib.so          # [linux]
@@ -86,6 +90,7 @@ outputs:
         - llvm  {{ llvm_version }}.*
         - zlib
         - spirv-headers
+        - spirv-tools
         - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
       run:
         - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
@@ -113,6 +118,7 @@ outputs:
         - llvm  {{ llvm_version }}.*
         - zlib
         - spirv-headers
+        - spirv-tools
         - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
       run:
         - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
@@ -125,6 +131,7 @@ outputs:
     build:
       ignore_run_exports_from:
         - zlib
+        - spirv-tools
     files:
       - bin/llvm-spirv
     requirements:
@@ -138,6 +145,7 @@ outputs:
         - llvm  {{ llvm_version }}.*
         - zlib
         - spirv-headers
+        - spirv-tools
         - {{ pin_subpackage("llvm-spirv-" ~ major, exact=True) }}
       run:
         - {{ pin_subpackage("llvm-spirv-" ~ major, exact=True) }}
