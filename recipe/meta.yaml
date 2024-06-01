@@ -47,6 +47,7 @@ outputs:
       - lib/libLLVMSPIRVLib.so.{{ abi_version }}     # [linux]
     requirements:
       build:
+        - {{ stdlib('c') }}
         - {{ compiler('cxx') }}
         - cmake
         - make
@@ -81,6 +82,7 @@ outputs:
       - include/LLVMSPIRVLib/
     requirements:
       build:
+        - {{ stdlib('c') }}
         - {{ compiler('cxx') }}
         - cmake
         - make
@@ -109,6 +111,7 @@ outputs:
       - bin/llvm-spirv-{{ major }}
     requirements:
       build:
+        - {{ stdlib('c') }}
         - {{ compiler('cxx') }}
         - cmake
         - make
@@ -136,6 +139,7 @@ outputs:
       - bin/llvm-spirv
     requirements:
       build:
+        - {{ stdlib('c') }}
         - {{ compiler('cxx') }}
         - cmake
         - make
