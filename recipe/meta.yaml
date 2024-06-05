@@ -1,7 +1,13 @@
 {% set name = "llvm-spirv" %}
-{% set version = "17.0.0" %}
+{% set version = "18.1.0" %}
 {% set llvm_version = ".".join(version.split(".")[:2]) %}
 {% set major = version.split('.')[0] %}
+# https://www.phoronix.com/news/LLVM-N-1-Stable-Versioning
+{% if major | int >= 18 %}
+{% set abi_version = ".".join(version.split(".")[:2]) %}
+{% else %}
+{% set abi_version = version.split('.')[0] %}
+{% endif %}
 
 package:
   name: llvm-spirv-split
@@ -9,7 +15,7 @@ package:
 
 source:
   url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
-  sha256: eba381e1dd99b4ff6c672a28f52755d1adf2d810a97b51e6074ad4fa67937fb2
+  sha256: 78a770eff24d5ffe2798479845adec4b909cbf058ddc55830ea00fa7d2c1698a
 
 build:
   number: 0
@@ -17,6 +23,7 @@ build:
 
 requirements:
   build:
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - cmake
     - make
@@ -25,6 +32,7 @@ requirements:
     - llvmdev  {{ llvm_version }}.*
     - llvm  {{ llvm_version }}.*
     - spirv-headers
+    - spirv-tools
     - zlib
 
 outputs:
@@ -33,11 +41,13 @@ outputs:
     build:
       ignore_run_exports_from:
         - zlib
+        - spirv-tools
     files:
-      - lib/libLLVMSPIRVLib.{{ major }}.dylib  # [osx]
-      - lib/libLLVMSPIRVLib.so.{{ major }}     # [linux]
+      - lib/libLLVMSPIRVLib.{{ abi_version }}.dylib  # [osx]
+      - lib/libLLVMSPIRVLib.so.{{ abi_version }}     # [linux]
     requirements:
       build:
+        - {{ stdlib('c') }}
         - {{ compiler('cxx') }}
         - cmake
         - make
@@ -47,14 +57,15 @@ outputs:
         - llvm  {{ llvm_version }}.*
         - zlib
         - spirv-headers
+        - spirv-tools
       run_constrained:
         - llvmdev  {{ llvm_version }}.*
         - llvm-spirv {{ version }}.* *_{{ PKG_BUILDNUM }}
     test:
       commands:
         - test ! -f ${PREFIX}/lib/libLLVMSPIRVLib${SHLIB_EXT}
-        - test -f ${PREFIX}/lib/libLLVMSPIRVLib.{{ major }}.dylib  # [osx]
-        - test -f ${PREFIX}/lib/libLLVMSPIRVLib.so.{{ major }}     # [linux]
+        - test -f ${PREFIX}/lib/libLLVMSPIRVLib.{{ abi_version }}.dylib  # [osx]
+        - test -f ${PREFIX}/lib/libLLVMSPIRVLib.so.{{ abi_version }}     # [linux]
 
   - name: libllvmspirv
     script: install.sh
@@ -63,6 +74,7 @@ outputs:
         - {{ pin_subpackage("libllvmspirv" ~ major) }}
       ignore_run_exports_from:
         - zlib
+        - spirv-tools
     files:
       - lib/libLLVMSPIRVLib.dylib       # [osx]
       - lib/libLLVMSPIRVLib.so          # [linux]
@@ -70,6 +82,7 @@ outputs:
       - include/LLVMSPIRVLib/
     requirements:
       build:
+        - {{ stdlib('c') }}
         - {{ compiler('cxx') }}
         - cmake
         - make
@@ -79,6 +92,7 @@ outputs:
         - llvm  {{ llvm_version }}.*
         - zlib
         - spirv-headers
+        - spirv-tools
         - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
       run:
         - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
@@ -97,6 +111,7 @@ outputs:
       - bin/llvm-spirv-{{ major }}
     requirements:
       build:
+        - {{ stdlib('c') }}
         - {{ compiler('cxx') }}
         - cmake
         - make
@@ -106,6 +121,7 @@ outputs:
         - llvm  {{ llvm_version }}.*
         - zlib
         - spirv-headers
+        - spirv-tools
         - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
       run:
         - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
@@ -118,10 +134,12 @@ outputs:
     build:
       ignore_run_exports_from:
         - zlib
+        - spirv-tools
     files:
       - bin/llvm-spirv
     requirements:
       build:
+        - {{ stdlib('c') }}
         - {{ compiler('cxx') }}
         - cmake
         - make
@@ -131,6 +149,7 @@ outputs:
         - llvm  {{ llvm_version }}.*
         - zlib
         - spirv-headers
+        - spirv-tools
         - {{ pin_subpackage("llvm-spirv-" ~ major, exact=True) }}
       run:
         - {{ pin_subpackage("llvm-spirv-" ~ major, exact=True) }}
@@ -151,3 +170,4 @@ extra:
   recipe-maintainers:
     - isuruf
     - matthiasdiener
+    - ZzEeKkAa
