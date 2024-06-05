@@ -1,5 +1,5 @@
 {% set name = "llvm-spirv" %}
-{% set version = "18.1.0" %}
+{% set version = "18.1.1" %}
 {% set llvm_version = ".".join(version.split(".")[:2]) %}
 {% set major = version.split('.')[0] %}
 # https://www.phoronix.com/news/LLVM-N-1-Stable-Versioning
@@ -15,7 +15,7 @@ package:
 
 source:
   url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
-  sha256: 78a770eff24d5ffe2798479845adec4b909cbf058ddc55830ea00fa7d2c1698a
+  sha256: c1c7aee4ea23a6a1089bb7f7bad198c28ada65c5b7671434562fe0241d8674d6
 
 build:
   number: 0
