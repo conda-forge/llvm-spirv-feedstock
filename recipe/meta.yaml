@@ -8,6 +8,7 @@
 {% else %}
 {% set abi_version = version.split('.')[0] %}
 {% endif %}
+{% set library = "Library/" if win else "" %}
 
 package:
   name: llvm-spirv-split
@@ -16,23 +17,26 @@ package:
 source:
   url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
   sha256: 78a770eff24d5ffe2798479845adec4b909cbf058ddc55830ea00fa7d2c1698a
+  patches:
+    # https://github.com/llvm/llvm-project/issues/83802
+    - patches/0001-Work-around-a-bug-in-the-llvm-config.patch  # [win]
 
 build:
-  number: 0
-  skip: true  # [not unix]
+  number: 1
 
 requirements:
   build:
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - cmake
-    - make
+    - ninja  # [win]
+    - make   # [not win]
     - pkg-config
   host:
     - llvmdev  {{ llvm_version }}.*
     - llvm  {{ llvm_version }}.*
     - spirv-headers
-    - spirv-tools
+    - spirv-tools  # [not win]
     - zlib
 
 outputs:
@@ -42,6 +46,7 @@ outputs:
       ignore_run_exports_from:
         - zlib
         - spirv-tools
+      skip: true  # [win]
     files:
       - lib/libLLVMSPIRVLib.{{ abi_version }}.dylib  # [osx]
       - lib/libLLVMSPIRVLib.so.{{ abi_version }}     # [linux]
@@ -68,18 +73,22 @@ outputs:
         - test -f ${PREFIX}/lib/libLLVMSPIRVLib.so.{{ abi_version }}     # [linux]
 
   - name: libllvmspirv
-    script: install.sh
+    script: install.sh   # [not win]
+    script: install.bat  # [win]
     build:
       run_exports:
         - {{ pin_subpackage("libllvmspirv" ~ major) }}
       ignore_run_exports_from:
         - zlib
-        - spirv-tools
+        - spirv-tools  # [not win]
+      script_env:
+        - MAJOR_VERSION={{ major }}  # [win]
     files:
-      - lib/libLLVMSPIRVLib.dylib       # [osx]
-      - lib/libLLVMSPIRVLib.so          # [linux]
-      - lib/pkgconfig/LLVMSPIRVLib.pc
-      - include/LLVMSPIRVLib/
+      - lib/libLLVMSPIRVLib.dylib          # [osx]
+      - lib/libLLVMSPIRVLib.so             # [linux]
+      - {{ library }}lib/LLVMSPIRVLib.lib  # [win]
+      - {{ library }}lib/pkgconfig/LLVMSPIRVLib.pc
+      - {{ library }}include/LLVMSPIRVLib/
     requirements:
       build:
         - {{ stdlib('c') }}
@@ -92,23 +101,28 @@ outputs:
         - llvm  {{ llvm_version }}.*
         - zlib
         - spirv-headers
-        - spirv-tools
-        - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
+        - spirv-tools  # [not win]
+        - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}  # [not win]
       run:
-        - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
+        - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}  # [not win]
       run_constrained:
         - llvmdev  {{ llvm_version }}.*
     test:
       commands:
-        - test -f ${PREFIX}/lib/libLLVMSPIRVLib${SHLIB_EXT}
+        - test -f ${PREFIX}/lib/libLLVMSPIRVLib${SHLIB_EXT}      # [not win]
+        - if not exist "%LIBRARY_LIB%"\\LLVMSPIRVLib.lib exit 1  # [win]
 
   - name: llvm-spirv-{{ major }}
-    script: install.sh
+    script: install.sh   # [not win]
+    script: install.bat  # [win]
     build:
       ignore_run_exports_from:
         - zlib
+      script_env:
+        - MAJOR_VERSION={{ major }}  # [win]
     files:
-      - bin/llvm-spirv-{{ major }}
+      - bin/llvm-spirv-{{ major }}                   # [not win]
+      - {{ library }}bin/llvm-spirv-{{ major }}.exe  # [win]
     requirements:
       build:
         - {{ stdlib('c') }}
@@ -121,22 +135,28 @@ outputs:
         - llvm  {{ llvm_version }}.*
         - zlib
         - spirv-headers
-        - spirv-tools
-        - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
+        - spirv-tools  # [not win]
+        - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}  # [not win]
       run:
-        - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}
+        - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}  # [not win]
     test:
       commands:
-        - ${PREFIX}/bin/llvm-spirv-{{ major }} -help
+        - ${PREFIX}/bin/llvm-spirv-{{ major }} -help         # [not win]
+        - '%LIBRARY_BIN%\\llvm-spirv-{{ major }}.exe -help'  # [win]
+        - llvm-spirv-{{ major }} -help
 
   - name: llvm-spirv
-    script: install.sh
+    script: install.sh   # [not win]
+    script: install.bat  # [win]
     build:
       ignore_run_exports_from:
         - zlib
-        - spirv-tools
+        - spirv-tools  # [not win]
+      script_env:
+        - MAJOR_VERSION={{ major }}  # [win]
     files:
-      - bin/llvm-spirv
+      - bin/llvm-spirv                   # [not win]
+      - {{ library }}bin/llvm-spirv.exe  # [win]
     requirements:
       build:
         - {{ stdlib('c') }}
@@ -149,13 +169,14 @@ outputs:
         - llvm  {{ llvm_version }}.*
         - zlib
         - spirv-headers
-        - spirv-tools
+        - spirv-tools  # [not win]
         - {{ pin_subpackage("llvm-spirv-" ~ major, exact=True) }}
       run:
         - {{ pin_subpackage("llvm-spirv-" ~ major, exact=True) }}
     test:
       commands:
-        - ${PREFIX}/bin/llvm-spirv -help
+        - ${PREFIX}/bin/llvm-spirv -help         # [not win]
+        - '%LIBRARY_BIN%\\llvm-spirv.exe -help'  # [win]
         - llvm-spirv -help
 
 about:
