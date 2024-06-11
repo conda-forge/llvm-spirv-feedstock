@@ -77,7 +77,7 @@ outputs:
     script: install.bat  # [win]
     build:
       run_exports:
-        - {{ pin_subpackage("libllvmspirv" ~ major) }}
+        - {{ pin_subpackage("libllvmspirv" ~ major) }}  # [not win]
       ignore_run_exports_from:
         - zlib
         - spirv-tools  # [not win]
