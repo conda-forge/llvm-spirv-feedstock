@@ -1,5 +1,5 @@
 {% set name = "llvm-spirv" %}
-{% set version = "18.1.0" %}
+{% set version = "18.1.1" %}
 {% set llvm_version = ".".join(version.split(".")[:2]) %}
 {% set major = version.split('.')[0] %}
 # https://www.phoronix.com/news/LLVM-N-1-Stable-Versioning
@@ -16,13 +16,13 @@ package:
 
 source:
   url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
-  sha256: 78a770eff24d5ffe2798479845adec4b909cbf058ddc55830ea00fa7d2c1698a
+  sha256: c1c7aee4ea23a6a1089bb7f7bad198c28ada65c5b7671434562fe0241d8674d6
   patches:
     # https://github.com/llvm/llvm-project/issues/83802
     - patches/0001-Work-around-a-bug-in-the-llvm-config.patch  # [win]
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -73,7 +73,7 @@ outputs:
         - test -f ${PREFIX}/lib/libLLVMSPIRVLib.so.{{ abi_version }}     # [linux]
 
   - name: libllvmspirv
-    script: install.sh   # [not win]
+    script: install.sh  # [not win]
     script: install.bat  # [win]
     build:
       run_exports:
@@ -113,7 +113,7 @@ outputs:
         - if not exist "%LIBRARY_LIB%"\\LLVMSPIRVLib.lib exit 1  # [win]
 
   - name: llvm-spirv-{{ major }}
-    script: install.sh   # [not win]
+    script: install.sh  # [not win]
     script: install.bat  # [win]
     build:
       ignore_run_exports_from:
@@ -146,7 +146,7 @@ outputs:
         - llvm-spirv-{{ major }} -help
 
   - name: llvm-spirv
-    script: install.sh   # [not win]
+    script: install.sh  # [not win]
     script: install.bat  # [win]
     build:
       ignore_run_exports_from:
