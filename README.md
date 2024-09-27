@@ -61,6 +61,13 @@ Current build status
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/llvm-spirv-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
+            </tr><tr>
+              <td>win_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8029&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/llvm-spirv-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -74,7 +81,10 @@ Current release info
 
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv-green.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv19-green.svg)](https://anaconda.org/conda-forge/libllvmspirv19) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv19.svg)](https://anaconda.org/conda-forge/libllvmspirv19) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv19.svg)](https://anaconda.org/conda-forge/libllvmspirv19) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv19.svg)](https://anaconda.org/conda-forge/libllvmspirv19) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv-green.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv--19-green.svg)](https://anaconda.org/conda-forge/llvm-spirv-19) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv-19.svg)](https://anaconda.org/conda-forge/llvm-spirv-19) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv-19.svg)](https://anaconda.org/conda-forge/llvm-spirv-19) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv-19.svg)](https://anaconda.org/conda-forge/llvm-spirv-19) |
 
 Installing llvm-spirv
 =====================
@@ -86,41 +96,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `llvm-spirv` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `libllvmspirv, libllvmspirv19, llvm-spirv, llvm-spirv-19` can be installed with `conda`:
 
 ```
-conda install llvm-spirv
-```
-
-or with `mamba`:
-
-```
-mamba install llvm-spirv
-```
-
-It is possible to list all of the versions of `llvm-spirv` available on your platform with `conda`:
-
-```
-conda search llvm-spirv --channel conda-forge
+conda install libllvmspirv libllvmspirv19 llvm-spirv llvm-spirv-19
 ```
 
 or with `mamba`:
 
 ```
-mamba search llvm-spirv --channel conda-forge
+mamba install libllvmspirv libllvmspirv19 llvm-spirv llvm-spirv-19
+```
+
+It is possible to list all of the versions of `libllvmspirv` available on your platform with `conda`:
+
+```
+conda search libllvmspirv --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search libllvmspirv --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search llvm-spirv --channel conda-forge
+mamba repoquery search libllvmspirv --channel conda-forge
 
-# List packages depending on `llvm-spirv`:
-mamba repoquery whoneeds llvm-spirv --channel conda-forge
+# List packages depending on `libllvmspirv`:
+mamba repoquery whoneeds libllvmspirv --channel conda-forge
 
-# List dependencies of `llvm-spirv`:
-mamba repoquery depends llvm-spirv --channel conda-forge
+# List dependencies of `libllvmspirv`:
+mamba repoquery depends libllvmspirv --channel conda-forge
 ```
 
 
@@ -142,7 +152,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
@@ -190,5 +200,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@ZzEeKkAa](https://github.com/ZzEeKkAa/)
 * [@isuruf](https://github.com/isuruf/)
+* [@matthiasdiener](https://github.com/matthiasdiener/)
 
