@@ -82,9 +82,9 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv-green.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv19-green.svg)](https://anaconda.org/conda-forge/libllvmspirv19) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv19.svg)](https://anaconda.org/conda-forge/libllvmspirv19) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv19.svg)](https://anaconda.org/conda-forge/libllvmspirv19) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv19.svg)](https://anaconda.org/conda-forge/libllvmspirv19) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv17-green.svg)](https://anaconda.org/conda-forge/libllvmspirv17) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv17.svg)](https://anaconda.org/conda-forge/libllvmspirv17) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv17.svg)](https://anaconda.org/conda-forge/libllvmspirv17) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv17.svg)](https://anaconda.org/conda-forge/libllvmspirv17) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv-green.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv--19-green.svg)](https://anaconda.org/conda-forge/llvm-spirv-19) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv-19.svg)](https://anaconda.org/conda-forge/llvm-spirv-19) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv-19.svg)](https://anaconda.org/conda-forge/llvm-spirv-19) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv-19.svg)](https://anaconda.org/conda-forge/llvm-spirv-19) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv--17-green.svg)](https://anaconda.org/conda-forge/llvm-spirv-17) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv-17.svg)](https://anaconda.org/conda-forge/llvm-spirv-17) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv-17.svg)](https://anaconda.org/conda-forge/llvm-spirv-17) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv-17.svg)](https://anaconda.org/conda-forge/llvm-spirv-17) |
 
 Installing llvm-spirv
 =====================
@@ -96,16 +96,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `libllvmspirv, libllvmspirv19, llvm-spirv, llvm-spirv-19` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `libllvmspirv, libllvmspirv17, llvm-spirv, llvm-spirv-17` can be installed with `conda`:
 
 ```
-conda install libllvmspirv libllvmspirv19 llvm-spirv llvm-spirv-19
+conda install libllvmspirv libllvmspirv17 llvm-spirv llvm-spirv-17
 ```
 
 or with `mamba`:
 
 ```
-mamba install libllvmspirv libllvmspirv19 llvm-spirv llvm-spirv-19
+mamba install libllvmspirv libllvmspirv17 llvm-spirv llvm-spirv-17
 ```
 
 It is possible to list all of the versions of `libllvmspirv` available on your platform with `conda`:
