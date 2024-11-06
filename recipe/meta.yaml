@@ -189,6 +189,7 @@ about:
 extra:
   feedstock-name: llvm-spirv
   recipe-maintainers:
+    - oleksandr-pavlyk
     - isuruf
     - matthiasdiener
     - ZzEeKkAa
