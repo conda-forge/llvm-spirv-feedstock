@@ -203,4 +203,5 @@ Feedstock Maintainers
 * [@ZzEeKkAa](https://github.com/ZzEeKkAa/)
 * [@isuruf](https://github.com/isuruf/)
 * [@matthiasdiener](https://github.com/matthiasdiener/)
+* [@oleksandr-pavlyk](https://github.com/oleksandr-pavlyk/)
 
