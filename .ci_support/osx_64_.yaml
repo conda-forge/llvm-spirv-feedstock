@@ -16,6 +16,8 @@ cxx_compiler_version:
 - '18'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+spirv_tools:
+- '2024'
 target_platform:
 - osx-64
 zlib:
