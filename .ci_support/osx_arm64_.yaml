@@ -13,9 +13,11 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '18'
+- '19'
 macos_machine:
 - arm64-apple-darwin20.0.0
+spirv_tools:
+- '2024'
 target_platform:
 - osx-arm64
 zlib:
