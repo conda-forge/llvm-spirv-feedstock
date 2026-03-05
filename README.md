@@ -82,9 +82,9 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv-green.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv21-green.svg)](https://anaconda.org/conda-forge/libllvmspirv21) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv21.svg)](https://anaconda.org/conda-forge/libllvmspirv21) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv21.svg)](https://anaconda.org/conda-forge/libllvmspirv21) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv21.svg)](https://anaconda.org/conda-forge/libllvmspirv21) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv22-green.svg)](https://anaconda.org/conda-forge/libllvmspirv22) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv22.svg)](https://anaconda.org/conda-forge/libllvmspirv22) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv22.svg)](https://anaconda.org/conda-forge/libllvmspirv22) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv22.svg)](https://anaconda.org/conda-forge/libllvmspirv22) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv-green.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv--21-green.svg)](https://anaconda.org/conda-forge/llvm-spirv-21) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv-21.svg)](https://anaconda.org/conda-forge/llvm-spirv-21) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv-21.svg)](https://anaconda.org/conda-forge/llvm-spirv-21) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv-21.svg)](https://anaconda.org/conda-forge/llvm-spirv-21) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv--22-green.svg)](https://anaconda.org/conda-forge/llvm-spirv-22) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv-22.svg)](https://anaconda.org/conda-forge/llvm-spirv-22) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv-22.svg)](https://anaconda.org/conda-forge/llvm-spirv-22) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv-22.svg)](https://anaconda.org/conda-forge/llvm-spirv-22) |
 
 Installing llvm-spirv
 =====================
@@ -96,16 +96,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `libllvmspirv, libllvmspirv21, llvm-spirv, llvm-spirv-21` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `libllvmspirv, libllvmspirv22, llvm-spirv, llvm-spirv-22` can be installed with `conda`:
 
 ```
-conda install libllvmspirv libllvmspirv21 llvm-spirv llvm-spirv-21
+conda install libllvmspirv libllvmspirv22 llvm-spirv llvm-spirv-22
 ```
 
 or with `mamba`:
 
 ```
-mamba install libllvmspirv libllvmspirv21 llvm-spirv llvm-spirv-21
+mamba install libllvmspirv libllvmspirv22 llvm-spirv llvm-spirv-22
 ```
 
 It is possible to list all of the versions of `libllvmspirv` available on your platform with `conda`:
@@ -200,6 +200,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@JarrettSJohnson](https://github.com/JarrettSJohnson/)
 * [@ZzEeKkAa](https://github.com/ZzEeKkAa/)
 * [@isuruf](https://github.com/isuruf/)
 * [@matthiasdiener](https://github.com/matthiasdiener/)
