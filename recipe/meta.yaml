@@ -1,5 +1,5 @@
 {% set name = "llvm-spirv" %}
-{% set version = "22.1.2" %}
+{% set version = "22.1.5" %}
 {% set llvm_version = ".".join(version.split(".")[:2]) %}
 {% set major = version.split('.')[0] %}
 # https://www.phoronix.com/news/LLVM-N-1-Stable-Versioning
@@ -16,7 +16,7 @@ package:
 
 source:
   url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
-  sha256: b37196b1a1a60282a24cf937ab7d6807d7d54dc718f2a37a78e211be26df57ac
+  sha256: 3c6dffb4b8d67f5c544370e0c869ec7d22c013d4bb798f24655ec903f26cc5d5
   patches:
     # https://github.com/llvm/llvm-project/issues/83802
     - patches/0001-Work-around-a-bug-in-the-llvm-config.patch  # [win]
