@@ -13,7 +13,14 @@ Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>GitHub Actions</td>
+    <td>
+      <a href="https://github.com/conda-forge/llvm-spirv-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/llvm-spirv-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -27,45 +34,10 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8029&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/llvm-spirv-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_aarch64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8029&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/llvm-spirv-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_ppc64le</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8029&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/llvm-spirv-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8029&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/llvm-spirv-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_arm64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8029&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/llvm-spirv-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>win_64</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8029&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/llvm-spirv-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -82,9 +54,9 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv-green.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv.svg)](https://anaconda.org/conda-forge/libllvmspirv) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv22-green.svg)](https://anaconda.org/conda-forge/libllvmspirv22) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv22.svg)](https://anaconda.org/conda-forge/libllvmspirv22) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv22.svg)](https://anaconda.org/conda-forge/libllvmspirv22) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv22.svg)](https://anaconda.org/conda-forge/libllvmspirv22) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-libllvmspirv23-green.svg)](https://anaconda.org/conda-forge/libllvmspirv23) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/libllvmspirv23.svg)](https://anaconda.org/conda-forge/libllvmspirv23) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/libllvmspirv23.svg)](https://anaconda.org/conda-forge/libllvmspirv23) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/libllvmspirv23.svg)](https://anaconda.org/conda-forge/libllvmspirv23) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv-green.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv.svg)](https://anaconda.org/conda-forge/llvm-spirv) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv--22-green.svg)](https://anaconda.org/conda-forge/llvm-spirv-22) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv-22.svg)](https://anaconda.org/conda-forge/llvm-spirv-22) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv-22.svg)](https://anaconda.org/conda-forge/llvm-spirv-22) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv-22.svg)](https://anaconda.org/conda-forge/llvm-spirv-22) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-llvm--spirv--23-green.svg)](https://anaconda.org/conda-forge/llvm-spirv-23) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/llvm-spirv-23.svg)](https://anaconda.org/conda-forge/llvm-spirv-23) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/llvm-spirv-23.svg)](https://anaconda.org/conda-forge/llvm-spirv-23) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/llvm-spirv-23.svg)](https://anaconda.org/conda-forge/llvm-spirv-23) |
 
 Installing llvm-spirv
 =====================
@@ -96,31 +68,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `libllvmspirv, libllvmspirv22, llvm-spirv, llvm-spirv-22` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
-conda install libllvmspirv libllvmspirv22 llvm-spirv llvm-spirv-22
+conda install libllvmspirv libllvmspirv23 llvm-spirv llvm-spirv-23
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
-mamba install libllvmspirv libllvmspirv22 llvm-spirv llvm-spirv-22
+mamba install libllvmspirv libllvmspirv23 llvm-spirv llvm-spirv-23
 ```
 
-It is possible to list all of the versions of `libllvmspirv` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add libllvmspirv libllvmspirv23 llvm-spirv llvm-spirv-23
+# for installing globally
+pixi global install libllvmspirv libllvmspirv23 llvm-spirv llvm-spirv-23
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `libllvmspirv` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search libllvmspirv --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search libllvmspirv --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search libllvmspirv --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -132,6 +146,8 @@ mamba repoquery whoneeds libllvmspirv --channel conda-forge
 # List dependencies of `libllvmspirv`:
 mamba repoquery depends libllvmspirv --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
