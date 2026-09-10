@@ -2,12 +2,7 @@
 {% set version = "22.1.6" %}
 {% set llvm_version = ".".join(version.split(".")[:2]) %}
 {% set major = version.split('.')[0] %}
-# https://www.phoronix.com/news/LLVM-N-1-Stable-Versioning
-{% if major | int >= 18 %}
 {% set abi_version = ".".join(version.split(".")[:2]) %}
-{% else %}
-{% set abi_version = version.split('.')[0] %}
-{% endif %}
 {% set library = "Library/" if win else "" %}
 
 package:
