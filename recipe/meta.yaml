@@ -1,6 +1,5 @@
 {% set name = "llvm-spirv" %}
 {% set version = "23.1.0" %}
-{% set llvm_version = ".".join(version.split(".")[:2]) %}
 {% set major = version.split('.')[0] %}
 {% set abi_version = ".".join(version.split(".")[:2]) %}
 {% set library = "Library/" if win else "" %}
@@ -28,8 +27,8 @@ requirements:
     - make   # [not win]
     - pkg-config
   host:
-    - llvmdev  {{ llvm_version }}.*
-    - llvm  {{ llvm_version }}.*
+    - llvmdev  {{ abi_version }}.*
+    - llvm  {{ abi_version }}.*
     - spirv-headers
     - spirv-tools  # [not win]
     - zlib
@@ -53,13 +52,13 @@ outputs:
         - make
         - pkg-config
       host:
-        - llvmdev  {{ llvm_version }}.*
-        - llvm  {{ llvm_version }}.*
+        - llvmdev  {{ abi_version }}.*
+        - llvm  {{ abi_version }}.*
         - zlib
         - spirv-headers
         - spirv-tools
       run_constrained:
-        - llvmdev  {{ llvm_version }}.*
+        - llvmdev  {{ abi_version }}.*
         - llvm-spirv {{ version }}.* *_{{ PKG_BUILDNUM }}
     test:
       commands:
@@ -92,8 +91,8 @@ outputs:
         - make
         - pkg-config
       host:
-        - llvmdev  {{ llvm_version }}.*
-        - llvm  {{ llvm_version }}.*
+        - llvmdev  {{ abi_version }}.*
+        - llvm  {{ abi_version }}.*
         - zlib
         - spirv-headers
         - spirv-tools  # [not win]
@@ -101,7 +100,7 @@ outputs:
       run:
         - {{ pin_subpackage("libllvmspirv" ~ major, exact=True) }}  # [not win]
       run_constrained:
-        - llvmdev  {{ llvm_version }}.*
+        - llvmdev  {{ abi_version }}.*
     test:
       commands:
         - test -f ${PREFIX}/lib/libLLVMSPIRVLib${SHLIB_EXT}      # [not win]
@@ -126,8 +125,8 @@ outputs:
         - make
         - pkg-config
       host:
-        - llvmdev  {{ llvm_version }}.*
-        - llvm  {{ llvm_version }}.*
+        - llvmdev  {{ abi_version }}.*
+        - llvm  {{ abi_version }}.*
         - zlib
         - spirv-headers
         - spirv-tools  # [not win]
@@ -160,8 +159,8 @@ outputs:
         - make
         - pkg-config
       host:
-        - llvmdev  {{ llvm_version }}.*
-        - llvm  {{ llvm_version }}.*
+        - llvmdev  {{ abi_version }}.*
+        - llvm  {{ abi_version }}.*
         - zlib
         - spirv-headers
         - spirv-tools  # [not win]
