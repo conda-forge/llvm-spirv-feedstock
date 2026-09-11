@@ -1,5 +1,5 @@
 {% set name = "llvm-spirv" %}
-{% set version = "23.1.0" %}
+{% set version = "23.1.1" %}
 {% set major = version.split('.')[0] %}
 {% set abi_version = ".".join(version.split(".")[:2]) %}
 {% set library = "Library/" if win else "" %}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/KhronosGroup/SPIRV-LLVM-Translator/archive/v{{ version.replace("_", "-") }}.tar.gz
-  sha256: 188148437567a678965ef66254ac510dbc124d9818c332602f9d20cacc3e77ee
+  sha256: 9e0bf1beb0ab7edca6cd8c17fd9bbb7ce3dcd520f3e969e0485ff5b00931f929
   patches:
     # https://github.com/llvm/llvm-project/issues/83802
     - patches/0001-Work-around-a-bug-in-the-llvm-config.patch  # [win]
